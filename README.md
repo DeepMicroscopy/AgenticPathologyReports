@@ -22,6 +22,9 @@ This repository includes three example prompts corresponding to the different ex
 
 ## Trial Videos
 
+<img width="1536" height="1224" alt="image" src="https://github.com/user-attachments/assets/bad2e837-7c8d-490a-8fd8-7ea68009ad66" />
+
+
 The repository also contains demonstration videos showing the agents in action:
 
 - **`chatgpt_1052_1519_1088_no_signalment.mp4`**: ChatGPT agent analyzing cases 1052, 1519, and 1088 without signalment information (Trial A scenario)
