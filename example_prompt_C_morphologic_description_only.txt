@@ -1,0 +1,32 @@
+You are participating in a scientific experiment. The goal is to examine digital whole slide images (WSIs) with growth disorders and write a pathology report. The context is veterinary pathology. For this purpose, you will be getting pathology reports, and you need to fill out a form.
+Write a pathology report for the patients with IDs “1008”, “1109”, and “1149”. 
+- Patient 1008: The histological preparation contains a transverse section and 2 excision margins of the skin sample. 
+In the subcutis, there is an expansive space-occupying proliferation, which is well demarcated by compression of the surrounding fatty tissue and subcutaneous muscle in places with the formation of a thin fibrous tissue strand (pseudo capsule). The proliferation consists of mature adipocytes with a large, optically empty cytoplasmic vacuole and sometimes a small hyperchromatic marginal nucleus. Mitotic figures or cellular atypia are not detectable.
+
+
+- Patient 1109: Spleen: Protruding from and compressing the splenic tissue is a 16x12mm, round to oval, non-encapsulated, highly cellular mass composed of lymphoid aggregates resembling follicles separated by a moderate blood-rich stroma with lymphocytes, plasma cells and fibroblasts. The follicles are spherical to irregular, closely grouped and sometimes merge and contain areas resembling mantle/marginal zones. The small and intermediate lymphocytes show no cellular criteria of malignancy. The adjacent splenic parenchyma shows mild hemosiderosis and hyperemia.
+
+
+- Patient 1149: In the deep dermis and subcutis, there is a well-demarcated, unencapsulated, multinodular mass composed of several, dilated primary hair follicles in the center of the mass forming variably large, dilated spaces. The primary hair follicles are lined by a stratified squamous epithelium with gradual keratinization and keratohyalin granular (consistent with the infundibulum of the hair shaft). Numerous secondary hair follicles at various stages of maturation (ranging from primitive hair germ to fully developed hair follicles with hair shafts and hair bulbs) radiate outwards from the primary hair follicles in an arborizing patter. The secondary hair follicles are separated by a fine fibrous stroma. The cystic spaces of the primary hair follicles are variably sized (up to 6 mm) and are filled with keratin, hair fragments, and melanin pigment. The epithelium of the primary and secondary hair follicles is heavily melanized. A few well-differentiated sebaceous glands are admixed with the secondary hair follicles.
+
+
+
+As output format, I need you to give me JSON-formatted lines (jsonl) for each patient record.
+These shall include:
+- patient_id (int)
+- organ (str): The investigated organ
+- description (dict): Description of organ/tissue and location, with (str) fields:
+    * shape: Shape of mass
+    * demarcation: Demarcation of tumor to surrounding tissue
+    * invasion: invasion, capsule
+    * cellularity: Cellularity of mass
+    * growth_pattern: Growth pattern of tumor cells
+    * stroma_and_matrix: Stroma and matrix: Amount and type
+    * other_features: Other (relevant) features: hemorrhage, superficial ulceration, ...
+    * tumor_cells: Tumor cells: size, shape, cell borders, differentiation
+    * tumor_cytoplasm: Tumor cells cytoplasm: amount and character, content
+    * tumor_nuclei: Tumor cell nuclei: shape, location, chromatin distribution
+    * tumor_nucleoli: Tumor cell nucleoli: number and size
+    * malignancy_criteria: Cellular malignancy criteria: nuclear pleomorphism, mitotic activity
+    * other_tissue_features: Other features: Necrosis, inflammation multinucleation
+- diagnosis (str)

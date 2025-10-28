@@ -1,0 +1,30 @@
+You are participating in a scientific experiment. The goal is to examine digital whole slide images (WSIs) with growth disorders and write a pathology report. The context is veterinary pathology. For this purpose, you can use a web-based platform, accessible at: https://exact-mitmproxy.our-domain.name/, username: “testuser”, password: “boqrys-7jEvne-wowbob”.
+In the folder “WSI” you will find various WSIs corresponding to different patients. Important:
+Write a pathology report for the patients with IDs “1008”, “1109”, and “1149”. Please only look at these patients. You can find the slides at the following URLs:
+- Patient 1008: https://exact-mitmproxy.our-domain.name/annotations/16738/, organ: skin, signalment: Dog, English Cocker Spaniel, 13Y, spayed female
+- Patient 1109: https://exact-mitmproxy.our-domain.name/annotations/16754/, organ: spleen, signalment: Dog, mixed, 3Y, female spayed
+- Patient 1149: https://exact-mitmproxy.our-domain.name/annotations/16758/, organ: skin, signalment: Guinea Pig; female; 5 years
+As output format, I need you to give me JSON-formatted lines (jsonl) for each patient record.
+These shall include:
+- patientd_id  (int) 
+- organ (str): The investigated organ
+- description (dict): Description of organ/tissue and location, with (str) fields:
+    * shape: Shape of mass
+    * demarcation: Demarcation of tumor to surrounding tissue
+    * invasion: invasion, capsule
+    * cellularity: Cellularity of mass
+    * growth_pattern: Growth pattern of tumor cells
+    * stroma_and_matrix: Stroma and matrix: Amount and type
+    * other_features: Other (relevant) features: hemorrhage, superficial ulceration, ...
+    * tumor_cells: Tumor cells: size, shape, cell borders, differentiation
+    * tumor_cytoplasm: Tumor cells cytoplasm: amount and character, content
+    * tumor_nuclei: Tumor cell nuclei: shape, location, chromatin distribution
+    * tumor_nucleoli: Tumor cell nucleoli: number and size
+    * malignancy_criteria: Cellular malignancy criteria: nuclear pleomorphism, mitotic activity
+    * other_tissue_features: Other features: Necrosis, inflammation multinucleation
+- diagnosis (str)
+
+Here is some guidance as to perform this task:
+- You can drag the image in the browser to move it. Alternatively, use the arrow keys. If you cannot drag or use keys, you can change the coordinates you are watching by changing the URL. You can use the parameters xmin,ymin,xmax, and ymax. Example: ?xmin=24432&ymin=20259&xmax=53303&ymax=38156
+- If the image is very blurry, it's likely that your browser did render before getting the full resolution. In this case, please drag the image to get a crisp version.
+- Zoom works via the slider in the top left corner of the image or via the mouse wheel, or by using the +/- keys.
